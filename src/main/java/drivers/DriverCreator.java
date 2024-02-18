@@ -18,6 +18,7 @@ public class DriverCreator {
                 //WebDriverManager.chromedriver().driverVersion("121.0.6167.184").setup();
                 // Initialize ChromeDriver
                 //return new ChromeDriverManager().create();
+                //Update the chrome driver path here
                 System.setProperty("webdriver.chrome.driver", "/Users/ranjani/Downloads/chromedriver-mac-arm64/chromedriver");
                 return new ChromeDriver();
         }
