@@ -15,12 +15,13 @@ public class DriverCreator {
             case "edge":
                 return new EdgeDriverManager().create();
             default:
-                //WebDriverManager.chromedriver().driverVersion("121.0.6167.184").setup();
                 // Initialize ChromeDriver
-                //return new ChromeDriverManager().create();
-                //Update the chrome driver path here
-                System.setProperty("webdriver.chrome.driver", "/Users/ranjani/Downloads/chromedriver-mac-arm64/chromedriver");
+                // Load chromedriver from the resources folder
+                String chromedriverPath = getClass().getClassLoader().getResource("chromedriver").getPath();
+                System.setProperty("webdriver.chrome.driver", chromedriverPath);
                 return new ChromeDriver();
+                // This is to initiate chrome from webdriver manager
+                // return new ChromeDriverManager().create();
         }
     }
     private String setDefaultBrowser(String browser) {
